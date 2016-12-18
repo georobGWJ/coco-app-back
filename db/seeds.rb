@@ -80,13 +80,3 @@ end
 # results.search('.test-center-results').each do |location|
 #   puts location.text.strip
 # end
-
-
-
-    # entries = doc.css('.entry')
-    # entriesArray = []
-    # entries.each do |entry|
-    #   title = entry.css('p.title>a').text
-    #   link = entry.css('p.title>a')[0]['href']
-    #   entriesArray << Entry.new(title, link)
-    # end
