@@ -1,9 +1,9 @@
 class TipsController < ApplicationController
 
+  def new
+  end 
+
   def create
   end 
 
-  def new
-  end 
-  
 end

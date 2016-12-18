@@ -1,26 +1,24 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # CHATROOM 
   resources :chats, only: [:index, :create]
 
+  # USERS PROFILE ROUTES
   resources :users do 
-    resources :requirements do 
-      resources :events, only: [:create, :new]
-    end 
+    resources :requirements, except: [:destroy]
+    # resources :sats
   end 
 
+  # INFORMATIONAL ROUTES
+  resources :requirements, only: [:index]
+  resources :applications, only: [:index, :create, :new]
+  # resources :sats, only: [:index]
+  resources :tips, only: [:create, :new]
+
+  # FORUM ROUTES 
   resources :messages do
     resources :comments 
-  end 
-
-  resources :events
-
-  resources :tips, only: [:create, :new] do 
-    resources :events, only: [:create, :new]
-  end 
-
-  resources :applications, only: [:index, :show] do 
-    resources :events, only: [:create, :new]
   end 
 
   # HOMEPAGE ROUTES 
