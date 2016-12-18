@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20161218004535) do
+ActiveRecord::Schema.define(version: 20161218202529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "applications", force: :cascade do |t|
-    t.string   "due_date"
-    t.string   "school"
-    t.boolean  "completed"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "chats", force: :cascade do |t|
     t.text     "content"
@@ -36,6 +26,14 @@ ActiveRecord::Schema.define(version: 20161218004535) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "sat_id"
+    t.boolean  "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,10 +53,16 @@ ActiveRecord::Schema.define(version: 20161218004535) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sats", force: :cascade do |t|
+    t.date     "date"
+    t.string   "address"
+    t.string   "location_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "tips", force: :cascade do |t|
-    t.string   "text"
-    t.boolean  "completed"
-    t.integer  "user_id"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,15 +82,6 @@ ActiveRecord::Schema.define(version: 20161218004535) do
     t.integer  "grade_level"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end 
-
-  create_table "sats", force: :cascade do |t|
-    t.date     "date"
-    t.string   "address"
-    t.boolean  "completed"
-    t.string   "location_name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
 end

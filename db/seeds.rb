@@ -15,7 +15,7 @@ page1 = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/te
 
 
  january_locations.each do |school|
-   Sat.create(location_name: school[:name], address: school[:address], date: 20170121, completed: false )
+   Sat.create(location_name: school[:name], address: school[:address], date: 20170121 )
  end
 
 ################################################################################
@@ -32,7 +32,7 @@ end
 
 
 march_locations.each do |school|
-  Sat.create(location_name: school[:name], address: school[:address], date: 20170311, completed: false )
+  Sat.create(location_name: school[:name], address: school[:address], date: 20170311 )
 end
 ################################################################################
 page3 = page2 = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/test-center-search?test_date=201705&country=US&state=CA&city="))
@@ -48,7 +48,7 @@ end
 
 
 may_locations.each do |school|
-  Sat.create(location_name: school[:name], address: school[:address], date: 20170506, completed: false )
+  Sat.create(location_name: school[:name], address: school[:address], date: 20170506 )
 end
 
 ################################################################################
@@ -65,7 +65,7 @@ end
 
 
 june_locations.each do |school|
-  Sat.create(location_name: school[:name], address: school[:address], date: 20170603, completed: false )
+  Sat.create(location_name: school[:name], address: school[:address], date: 20170603 )
 end
 # sat_locations = Mechanize.new
 #

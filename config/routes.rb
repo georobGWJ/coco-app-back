@@ -5,18 +5,20 @@ Rails.application.routes.draw do
   resources :chats, only: [:index, :create]
 
 
+  # INFORMATIONAL PAGES: 
+  resources :sats, only: [:index]
+  get '/requirements' => 'requirements#information'
+
+
   # USERS PROFILE ROUTES
   resources :users do 
     resources :requirements, except: [:destroy]
-    # resources :sats
+    resources :events
   end 
 
 
-  # INFORMATIONAL ROUTES
-  resources :applications, only: [:index, :create, :new]
-  # resources :sats, only: [:index]
-  resources :tips, only: [:create, :new]
-  # resources :requirements, only: [:index]
+  # TIPS FOR ADMIN USE
+  resources :tips 
 
 
   # FORUM ROUTES 
@@ -36,10 +38,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
 
-
-  # INFORMATIONAL ROUTES
-  get '/requirements' => 'requirements#information'
-  get '/sats' => 'sats#information'
 
 
 end
