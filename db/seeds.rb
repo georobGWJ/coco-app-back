@@ -1,7 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+require 'mechanize'
+require 'open-uri'
+#Scraping for SAT locations
+page = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/test-center-search?test_date=201701&country=US&state=CA&city="))
+
+sat_objects =  page.css('div.test-center-results-row')[0].text
+ all_objects = page.css('div.test-center-results-row')
+ schools_array = []
+ all_objects.each do |school|
+   schools = {}
+   schools[:name] = school.css('h3').text
+   schools[:address] = school.css('.test-center-result-value').text.split(" ").join(" ")
+   schools_array << schools
+   p schools_array
+ end
+
+Sat.new(name: "name", )
+ schools_array.each do |school|
+
+
+# sat_locations = Mechanize.new
 #
-# Examples:
+# page = sat_locations.get('https://collegereadiness.collegeboard.org/sat/register/find-test-centers')
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# form = page.forms.first
+# form.field_with(:name => "state").option_with(:value => "CA").click
+# #Click on submit to attain locations
+# # results = form.submit
+# results = sat_locations.submit(form, form.buttons.first)
+#
+# results.search('.test-center-results').each do |location|
+#   puts location.text.strip
+# end
+
+
+
+    # entries = doc.css('.entry')
+    # entriesArray = []
+    # entries.each do |entry|
+    #   title = entry.css('p.title>a').text
+    #   link = entry.css('p.title>a')[0]['href']
+    #   entriesArray << Entry.new(title, link)
+    # end
+
+    render text: entriesArray
