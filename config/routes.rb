@@ -1,33 +1,37 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  Rails.application.routes.draw do
+    resources :users
+    mount Knock::Engine => "/knock"
+  end  
 
-  # CHATROOM 
+  # CHATROOM
   resources :chats, only: [:index, :create]
 
 
-  # INFORMATIONAL PAGES: 
+  # INFORMATIONAL PAGES:
   resources :sats, only: [:index]
   get '/requirements' => 'requirements#information'
 
 
   # USERS PROFILE ROUTES
-  resources :users do 
+  resources :users do
     resources :requirements, except: [:destroy]
     resources :events
-  end 
+  end
 
 
   # TIPS FOR ADMIN USE
-  resources :tips 
+  resources :tips
 
 
-  # FORUM ROUTES 
+  # FORUM ROUTES
   resources :messages do
-    resources :comments 
-  end 
+    resources :comments
+  end
 
 
-  # HOMEPAGE ROUTES 
+  # HOMEPAGE ROUTES
   root 'welcome#index'
   get '/home' => 'welcome#index'
 
