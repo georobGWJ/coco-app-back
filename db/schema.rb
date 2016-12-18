@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20161218004535) do
 
   # These are extensions that must be enabled in order to support this database
@@ -77,6 +78,15 @@ ActiveRecord::Schema.define(version: 20161218004535) do
     t.integer  "grade_level"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end 
+
+  create_table "sats", force: :cascade do |t|
+    t.date     "date"
+    t.string   "address"
+    t.boolean  "completed"
+    t.string   "location_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
