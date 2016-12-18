@@ -4,6 +4,7 @@ class CreateApplications < ActiveRecord::Migration[5.0]
       t.string :due_date
       t.string :school
       t.boolean :completed
+      t.integer :user_id
 
       t.timestamps
     end
