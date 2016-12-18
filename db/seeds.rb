@@ -20,7 +20,7 @@ page1 = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/te
 
 ################################################################################
 page2 = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/test-center-search?test_date=201703&country=US&state=CA&city="))
-march_nokogiri = page1.css('div.test-center-results-row')
+march_nokogiri = page2.css('div.test-center-results-row')
 march_locations = []
 
 march_nokogiri.each do |school|
@@ -36,7 +36,7 @@ march_locations.each do |school|
 end
 ################################################################################
 page3 = page2 = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/test-center-search?test_date=201705&country=US&state=CA&city="))
-may_nokogiri = page1.css('div.test-center-results-row')
+may_nokogiri = page3.css('div.test-center-results-row')
 may_locations = []
 
 may_nokogiri.each do |school|
@@ -53,7 +53,7 @@ end
 
 ################################################################################
 page4 = page2 = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/test-center-search?test_date=201706&country=US&state=CA&city="))
-june_nokogiri = page1.css('div.test-center-results-row')
+june_nokogiri = page4.css('div.test-center-results-row')
 june_locations = []
 
 june_nokogiri.each do |school|
