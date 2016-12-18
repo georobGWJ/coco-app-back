@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def create
   end 
-
+  
   def show 
   end
 
@@ -21,9 +21,11 @@ class UsersController < ApplicationController
   def destroy
   end 
 
-private 
-
+private
   def user_params
-  end 
+  end
 
 end
+
+
+

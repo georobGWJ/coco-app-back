@@ -1,5 +1,8 @@
 class RequirementsController < ApplicationController
-  
+
+  def information
+  end 
+
   def index
   end 
 
