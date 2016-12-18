@@ -1,8 +1,5 @@
-class RequirementsController < ApplicationController
-
-  def information
-  end 
-
+class EventsController < ApplicationController
+  
   def index
   end 
 
@@ -11,7 +8,7 @@ class RequirementsController < ApplicationController
 
   def create
   end 
-
+  
   def show 
   end
 
@@ -21,9 +18,11 @@ class RequirementsController < ApplicationController
   def update
   end 
 
-private 
-
-  def requirement_params
+  def destroy
   end 
+
+private
+  def event_params
+  end
 
 end
