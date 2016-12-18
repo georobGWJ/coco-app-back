@@ -11,7 +11,6 @@ sat_objects =  page.css('div.test-center-results-row')[0].text
    schools[:name] = school.css('h3').text
    schools[:address] = school.css('.test-center-result-value').text.split(" ").join(" ")
    schools_array << schools
-   p schools_array
  end
 
 
@@ -43,4 +42,4 @@ sat_objects =  page.css('div.test-center-results-row')[0].text
     #   entriesArray << Entry.new(title, link)
     # end
 
-    render text: entriesArray
+  
