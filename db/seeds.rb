@@ -1,4 +1,4 @@
-require 'mechanize'
+# require 'mechanize'
 require 'open-uri'
 #Scraping for SAT locations
 page = Nokogiri::HTML(open("https://collegereadiness.collegeboard.org/api/v1/test-center-search?test_date=201701&country=US&state=CA&city="))
@@ -14,9 +14,10 @@ sat_objects =  page.css('div.test-center-results-row')[0].text
    p schools_array
  end
 
-Sat.new(name: "name", )
- schools_array.each do |school|
 
+ schools_array.each do |school|
+   Sat.create(location_name: school[:name], address: school[:address] )
+ end
 
 # sat_locations = Mechanize.new
 #

@@ -3,11 +3,8 @@ class CreateSats < ActiveRecord::Migration[5.0]
     create_table :sats do |t|
       t.date :date
       t.string :address
-      t.string :city
-      t.string :state
-      t.integer :zip
       t.boolean :completed
-      t.string :test_location
+      t.string :location_name
 
       t.timestamps
     end
