@@ -1,7 +1,7 @@
 class TipsController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.where(user_type: "Parent")
     @tips = Tip.all
     i = 0
     @tips.each do |tip|
