@@ -67,16 +67,3 @@ end
 june_locations.each do |school|
   Sat.create(location_name: school[:name], address: school[:address], date: 20170603 )
 end
-# sat_locations = Mechanize.new
-#
-# page = sat_locations.get('https://collegereadiness.collegeboard.org/sat/register/find-test-centers')
-#
-# form = page.forms.first
-# form.field_with(:name => "state").option_with(:value => "CA").click
-# #Click on submit to attain locations
-# # results = form.submit
-# results = sat_locations.submit(form, form.buttons.first)
-#
-# results.search('.test-center-results').each do |location|
-#   puts location.text.strip
-# end
