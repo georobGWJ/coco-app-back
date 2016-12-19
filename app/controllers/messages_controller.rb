@@ -8,11 +8,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.new(message_params)
-    if message.save
+    @message = Message.new(message_params)
+    if @message.save
       render json: {}, status: 200
     else
-      render json: ErrorSerializer.serialize(message.errors), status: 422
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
     end
   end
 
@@ -21,22 +21,21 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    message = Message.new(message_params)
-    if message.save
+    @message = Message.new(message_params)
+    if @message.save
       render json: {}, status: 200
     else
-      render json: ErrorSerializer.serialize(message.errors), status: 422
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
     end
   end
 
   def update
-    message = Message.find(params[:id])
-    if message.update(message_params)
+    @message = Message.find(params[:id])
+    if @message.update(message_params)
       render json: {}, status: 200
     else
-      render json: ErrorSerializer.serialize(message.errors), status: 422
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
     end
-
   end
 
   def destroy
@@ -44,7 +43,7 @@ class MessagesController < ApplicationController
     if @message.destroy
       render status: 200
     else
-      render status 422
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
     end
   end
 
