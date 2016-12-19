@@ -1,29 +1,31 @@
 class RequirementsController < ApplicationController
 
   def information
-  end 
+  end
 
   def index
-  end 
+    @requirements = Requirements.find_by(user_id: params[:id])
+    render json: @requirements
+  end
 
   def new
-  end 
+  end
 
   def create
-  end 
+  end
 
-  def show 
+  def show
   end
 
   def edit
-  end 
+  end
 
   def update
-  end 
+  end
 
-private 
+private
 
   def requirement_params
-  end 
+  end
 
 end
