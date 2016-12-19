@@ -68,6 +68,7 @@ june_locations.each do |school|
   Sat.create(location_name: school[:name], address: school[:address], date: 20170603 )
 end
 
+
 ################################################################################
 zara = User.create(first_name:"Zara", last_name: "Aslam", email:"zara@zara.com", password: "password", phone_number: "+15105579120", street_address: "221 7th Street", city:"San Francisco", state: "CA", zip_code: 94105, lang_preference: "spanish", grade_level: 9, user_type: "student")
 

@@ -1,26 +1,26 @@
 class TipsController < ApplicationController
 
   def index
+    @users = User.where(user_type: "Parent")
+    @tips = Tip.all
+    i = 0
+    @tips.each do |tip|
+        i += 1
+      @users.each do |user|
+        tip_information = {
+          phone_number: user.phone_number, 
+          name: user.name,
+          content: tip.content
+        } 
+        TipJob.set(wait: i.weeks).perform_later(tip_information)
+      end 
+    end 
   end 
 
   def new
   end 
 
   def create
-    @users = User.all
-    @tips = Tip.all
-    @tips.each do |tip|
-      @users.each do |user|
-        account_sid="ACec1465e23e82ebb1519b72eca9975082"
-        auth_token="e643628e4eb71e061742824361139936"
-        @client = Twilio::REST::Client.new account_sid, auth_token 
-        message = @client.account.messages.create(
-          :from => "+14152002640",
-          :to => user.phone_number,
-          :body => "Hi #{user.first_name}, #{tip.content}",
-        )
-      end 
-    end 
   end 
 
   def show 
