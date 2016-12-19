@@ -85,22 +85,22 @@ jose = User.create(first_name:"Jose", last_name: "Gonzalez", email:"jose@jose.co
 maria = User.create(first_name:"Maria", last_name: "Yulak", email:"maria@maria.com", password: "password", phone_number: "+14155188406", street_address: "8735 Holbrook Street", city:"Los Angeles", state: "CA", zip_code: 90660, lang_preference: "english", grade_level: 10, user_type: "parent")
 
 ################################################################################
-chat1 = Chat.create(content:"What is an AP course?", user_id: julia.id)
-chat2 = Chat.create(content:"An AP course is an Advanced Placement Course that provides an exam at the end of the year, and if passed, you receive college credit!", user_id: angie.id)
-chat3 = Chat.create(content:"I can't afford to pay for my child's SAT tests. ", user_id: julia.id)
-chat4 = Chat.create(content:"There's waivers for SAT tests, ask your school counselor!", user_id: angie.id)
+chat1 = Chat.create(body:"What is an AP course?", user_id: julia.id)
+chat2 = Chat.create(body:"An AP course is an Advanced Placement Course that provides an exam at the end of the year, and if passed, you receive college credit!", user_id: angie.id)
+chat3 = Chat.create(body:"I can't afford to pay for my child's SAT tests. ", user_id: julia.id)
+chat4 = Chat.create(body:"There's waivers for SAT tests, ask your school counselor!", user_id: angie.id)
 
 ################################################################################
-message1 = Message.create(title: "Scholarships",content:"Are there scholarships available for CA schools?", user_id: julia.id)
-message2 = Message.create(title: "SAT",content:"What are some tips for taking the SAT?", user_id: angie.id)
-message3 = Message.create(title: "SAT",content:"Simple and free resources on Khan Academy for SAT courses!", user_id: julia.id)
-message4 = Message.create(title: "Financial Aid",content:"Where can I apply for scholarships and financial aid?", user_id: angie.id)
+message1 = Message.create(title: "Scholarships",body:"Are there scholarships available for CA schools?", user_id: julia.id)
+message2 = Message.create(title: "SAT",body:"What are some tips for taking the SAT?", user_id: angie.id)
+message3 = Message.create(title: "SAT",body:"Simple and free resources on Khan Academy for SAT courses!", user_id: julia.id)
+message4 = Message.create(title: "Financial Aid",body:"Where can I apply for scholarships and financial aid?", user_id: angie.id)
 
 ################################################################################
-comment1 = Comment.create(content:"Yes! Check on fastweb.com!", user_id: rob.id, message_id: message1.id)
-comment2 = Comment.create(content:"What are some tips for taking the SAT?", user_id: rob.id, message_id: message2.id)
-comment3 = Comment.create(content:"Simple and free resources on Khan Academy for SAT courses!", user_id: rob.id, message_id: message3.id)
-comment4 = Comment.create(content:"Where can I apply for scholarships and financial aid?", user_id: rob.id, message_id: message4.id)
+comment1 = Comment.create(body:"Yes! Check on fastweb.com!", user_id: rob.id, message_id: message1.id)
+comment2 = Comment.create(body:"What are some tips for taking the SAT?", user_id: rob.id, message_id: message2.id)
+comment3 = Comment.create(body:"Simple and free resources on Khan Academy for SAT courses!", user_id: rob.id, message_id: message3.id)
+comment4 = Comment.create(body:"Where can I apply for scholarships and financial aid?", user_id: rob.id, message_id: message4.id)
 
 ################################################################################
 users = [jose,maria,arlene]

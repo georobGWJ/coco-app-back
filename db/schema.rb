@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20161219163033) do
   enable_extension "plpgsql"
 
   create_table "chats", force: :cascade do |t|
-    t.text     "content"
+    t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "content"
+    t.text     "body"
     t.integer  "user_id"
     t.integer  "message_id"
     t.datetime "created_at", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20161219163033) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text     "content"
+    t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

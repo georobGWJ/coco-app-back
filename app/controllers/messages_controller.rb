@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   skip_before_action :authenticate
-  
+
   def index
     render json: Message.all
   end
@@ -53,7 +53,7 @@ private
 private
 
   def message_params
-    params.require(:message).permit(:title, :content, :user_id)
+    params.require(:message).permit(:title, :body, :user_id)
   end
 
 end
