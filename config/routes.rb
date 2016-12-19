@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  Rails.application.routes.draw do
-    resources :users
-    mount Knock::Engine => "/knock"
-  end  
+  # resources :users
 
   # CHATROOM
   resources :chats, only: [:index, :create]
@@ -43,5 +40,6 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
 
+  mount Knock::Engine => "/knock"
 
 end

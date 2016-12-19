@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   include Knock::Authenticable
   before_action :authenticate
-  
+
 # STOP!!!! are you looking for 'applicationSSSSS' controller?
 # THIS IS NOT IT!
 
