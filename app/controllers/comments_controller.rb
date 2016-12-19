@@ -1,28 +1,55 @@
 class CommentsController < ApplicationController
   def index
-  end 
+    render json: Comment.all
+  end
 
   def new
-  end 
+  end
 
   def create
-  end 
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@comment.errors), status: 422
+    end
+  end
 
-  def show 
+  def show
+    render json: Comment.find(params[:id])
   end
 
   def edit
-  end 
+    @comment = Comment.find(params[:id])
+    if @comment.save
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@comment.errors), status: 422
+    end
+  end
 
   def update
-  end 
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@comment.errors), status: 422
+    end
+  end
 
   def destroy
-  end 
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      render status: 200
+    else
+      render json: ErrorSerializer.serialize(@comment.errors), status: 422
+    end
+  end
 
-private 
+private
 
   def comment_params
-  end 
+    params.require(:comment).permit(:content, :message_id, :user_id)
+  end
 
 end

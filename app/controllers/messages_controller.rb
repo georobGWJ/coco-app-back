@@ -1,29 +1,58 @@
 class MessagesController < ApplicationController
- 
+
   def index
-  end 
+    render json: Message.all
+  end
 
   def new
-  end 
+  end
 
   def create
-  end 
+    @message = Message.new(message_params)
+    if @message.save
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
+    end
+  end
 
-  def show 
+  def show
+    render json: Message.find(params[:id])
   end
 
   def edit
-  end 
+    @message = Message.new(message_params)
+    if @message.save
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
+    end
+  end
 
   def update
-  end 
+    @message = Message.find(params[:id])
+    if @message.update(message_params)
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
+    end
+  end
 
   def destroy
-  end 
+    @message = Message.find(params[:id])
+    if @message.destroy
+      render status: 200
+    else
+      render json: ErrorSerializer.serialize(@message.errors), status: 422
+    end
+  end
 
-private 
+private
+
+private
 
   def message_params
-  end 
+    params.require(:message).permit(:title, :content, :user_id)
+  end
 
 end
