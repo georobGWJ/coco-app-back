@@ -12,7 +12,7 @@ class TipJob < ApplicationJob
     message = @client.account.messages.create(
       :from => "+14152002640",
       :to => @phone_number,
-      :body => "Hi #{@name}, #{@content}",
+      :body => "Hi #{@name}, #{@content}"
     )
   end
 end
