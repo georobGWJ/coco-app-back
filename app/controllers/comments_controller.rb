@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_before_action :authenticate
+  
   def index
     render json: Comment.all
   end

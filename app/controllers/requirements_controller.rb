@@ -1,5 +1,6 @@
 class RequirementsController < ApplicationController
-
+  skip_before_action :authenticate
+  
   def information
   end
 

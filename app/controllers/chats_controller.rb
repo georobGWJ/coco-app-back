@@ -1,9 +1,9 @@
 class ChatsController < ApplicationController
-
+  skip_before_action :authenticate
   def index
-  end 
+  end
 
   def create
-  end 
+  end
 
 end

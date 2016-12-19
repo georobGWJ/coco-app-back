@@ -1,5 +1,5 @@
 class TipsController < ApplicationController
-
+  skip_before_action :authenticate
   def index
     @users = User.where(user_type: "Parent")
     @tips = Tip.all
@@ -8,32 +8,32 @@ class TipsController < ApplicationController
         i += 1
       @users.each do |user|
         tip_information = {
-          phone_number: user.phone_number, 
+          phone_number: user.phone_number,
           name: user.name,
           content: tip.content
-        } 
+        }
         TipJob.set(wait: i.weeks).perform_later(tip_information)
-      end 
-    end 
-  end 
+      end
+    end
+  end
 
   def new
-  end 
+  end
 
   def create
-  end 
+  end
 
-  def show 
+  def show
   end
 
   def edit
-  end 
+  end
 
   def update
-  end 
+  end
 
   def destroy
-  end  
+  end
 
 end
 
@@ -41,10 +41,8 @@ end
 
 
 
-# grab all the user's phone numbers and first name 
-# grab a list of our tip objects 
-# iterate through user's list and take one tip object 
+# grab all the user's phone numbers and first name
+# grab a list of our tip objects
+# iterate through user's list and take one tip object
 # send that tip to their phone number
-# repeat once a week 
-
-
+# repeat once a week

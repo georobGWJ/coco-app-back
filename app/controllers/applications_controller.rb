@@ -1,15 +1,15 @@
 class ApplicationsController < ApplicationController
- 
+   skip_before_action :authenticate
   def index
-  end 
+  end
 
-  def new 
-  end 
+  def new
+  end
 
   def create
-  end 
+  end
 
   def show
-  end 
+  end
 
 end
