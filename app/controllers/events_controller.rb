@@ -20,8 +20,10 @@ class EventsController < ApplicationController
         location: @sat.location_name
             }
 
-      ReminderJob.set(wait: 1.minute).perform_later(event_information)
-      ReminderJob.set(wait: 3.minutes).perform_later(event_information)
+        wait_time = 1
+
+      ReminderJob.set(wait: wait_time.minute).perform_later(event_information)
+      # ReminderJob.set(wait: 3.minutes).perform_later(event_information)
 
       redirect_to root_path
     else 
