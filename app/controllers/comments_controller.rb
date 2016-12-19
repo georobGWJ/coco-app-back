@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :authenticate
-  
+
   def index
     render json: Comment.all
   end
@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
 private
 
   def comment_params
-    params.require(:comment).permit(:content, :message_id, :user_id)
+    params.require(:comment).permit(:body, :message_id, :user_id)
   end
 
 end
