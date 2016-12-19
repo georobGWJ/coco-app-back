@@ -4,7 +4,10 @@ class RequirementsController < ApplicationController
   end
 
   def index
-    @requirements = Requirements.find_by(user_id: params[:id])
+    p "**********************"
+    p params[:user_id]
+    p "**********************"
+    @requirements = Requirement.where(user_id: params[:user_id])
     render json: @requirements
   end
 
