@@ -21,12 +21,6 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    @message = Message.new(message_params)
-    if @message.save
-      render json: {}, status: 200
-    else
-      render json: ErrorSerializer.serialize(@message.errors), status: 422
-    end
   end
 
   def update

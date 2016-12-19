@@ -1,9 +1,10 @@
 class ChatsController < ApplicationController
 
   def index
-  end 
+    render json: Chat.all
+  end
 
   def create
-  end 
+  end
 
 end

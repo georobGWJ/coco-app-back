@@ -1,29 +1,44 @@
 class RequirementsController < ApplicationController
 
   def information
-  end 
+  end
 
   def index
-  end 
+    render json: Requirement.all
+  end
 
   def new
-  end 
+  end
 
   def create
-  end 
+    @requirement = Requirement.new(requirement_params)
+    if @requirement.save
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@requirement.errors), status: 422
+    end
+  end
 
-  def show 
+  def show
+    render json: Requirement.find(params[:id])
   end
 
   def edit
-  end 
+  end
 
   def update
-  end 
+    @requirement = Requirement.find(params[:id])
+    if @requirement.update(requirement_params)
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(@requirement.errors), status: 422
+    end
+  end
 
-private 
+private
 
   def requirement_params
-  end 
+    params.require(:requirement).permit(:subject, :years, :user_id)
+  end
 
 end

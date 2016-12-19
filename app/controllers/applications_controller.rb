@@ -1,15 +1,17 @@
 class ApplicationsController < ApplicationController
- 
-  def index
-  end 
 
-  def new 
-  end 
+  def index
+    render json: Application.all
+  end
+
+  def new
+  end
 
   def create
-  end 
+  end
 
   def show
-  end 
+    render json: Application.find(params[:id])
+  end
 
 end
