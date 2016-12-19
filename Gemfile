@@ -32,6 +32,7 @@ gem 'mechanize', '~> 2.7', '>= 2.7.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 # Knock provides authentication communication
@@ -39,6 +40,9 @@ gem 'knock'
 
 gem 'active_model_serializers'
 gem 'hirb'
+
+gem 'twilio-ruby'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

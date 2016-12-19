@@ -1,0 +1,12 @@
+<%= form_tag (user_events_path) do %>
+    <%=label_tag :date %>
+      <%=text_field_tag :date %>
+
+    <%=label_tag :location_name %>
+      <%=text_field_tag :location_name %>
+
+    <% hidden_field_tag(:user_id, value = params[:user_id]) %>
+
+      <%= submit_tag("Search") %>
+
+<% end %>
