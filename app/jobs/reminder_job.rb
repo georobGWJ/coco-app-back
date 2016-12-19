@@ -6,7 +6,6 @@ class ReminderJob < ApplicationJob
     @phone_number = args[:phone_number]
     @date = args[:date]
     @location = args[:location]
-    p "*******" * 50
     account_sid="ACec1465e23e82ebb1519b72eca9975082"
     auth_token="e643628e4eb71e061742824361139936"
     @client = Twilio::REST::Client.new account_sid, auth_token 
@@ -15,6 +14,5 @@ class ReminderJob < ApplicationJob
       :to => @phone_number,
       :body => "Hi #{@name}, you have an SAT test coming up on #{@date} at #{@location}",
     )
-    puts message.to
   end
 end

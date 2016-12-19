@@ -8,9 +8,7 @@ class EventsController < ApplicationController
   end 
 
   def create
-    p params[:user_id]
     @user = User.find(params[:user_id])
-
     @sat = Sat.where(location_name: params[:location_name], date: params[:date]).first
     @event = Event.new(user_id: @user.id, sat_id: @sat.id, completed: false) 
 
