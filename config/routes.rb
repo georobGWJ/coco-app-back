@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get '/users/current-user', to: "current_user#show"
+  resources :users
+  # post '/login', to: "sessions#create"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # resources :users
 
@@ -38,7 +43,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
 
-
   mount Knock::Engine => "/knock"
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
