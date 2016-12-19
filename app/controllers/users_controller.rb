@@ -1,31 +1,28 @@
 class UsersController < ApplicationController
-  
+  include ErrorSerializer
+  skip_before_action :authenticate, only: [:create]
   def index
-  end 
+    render json: User.all
+  end
 
-  def new
-  end 
+  def show
+    render json: User.find(params[:id])
+  end
 
   def create
-  end 
-  
-  def show 
+    user = User.new(user_params)
+    if user.save
+      render json: {}, status: 200
+    else
+      render json: ErrorSerializer.serialize(user.errors), status: 422
+    end
   end
 
-  def edit
-  end 
+  private
 
-  def update
-  end 
+    def user_params
+      params.require(:user).permit(:user_type, :first_name, :last_name, :email, :phone_number, :grade_level, :address, :city, :state, :zipcode, :pref_language, :password, :password_confirmation)
+    end
 
-  def destroy
-  end 
-
-private
-  def user_params
-  end
 
 end
-
-
-

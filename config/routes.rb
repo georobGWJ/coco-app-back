@@ -1,33 +1,38 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  # CHATROOM 
+  get '/users/current-user', to: "current_user#show"
+  resources :users
+  # post '/login', to: "sessions#create"
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # resources :users
+
+  # CHATROOM
   resources :chats, only: [:index, :create]
 
 
-  # INFORMATIONAL PAGES: 
+  # INFORMATIONAL PAGES:
   resources :sats, only: [:index]
   get '/requirements' => 'requirements#information'
 
 
   # USERS PROFILE ROUTES
-  resources :users do 
+  resources :users do
     resources :requirements, except: [:destroy]
     resources :events
-  end 
-
+  end
 
   # TIPS FOR ADMIN USE
-  resources :tips 
+  resources :tips
 
 
-  # FORUM ROUTES 
+  # FORUM ROUTES
   resources :messages do
-    resources :comments 
-  end 
+    resources :comments
+  end
 
 
-  # HOMEPAGE ROUTES 
+  # HOMEPAGE ROUTES
   root 'welcome#index'
   get '/home' => 'welcome#index'
 
@@ -38,6 +43,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
 
-
-
+  mount Knock::Engine => "/knock"
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

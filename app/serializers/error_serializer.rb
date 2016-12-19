@@ -1,14 +1,7 @@
-class User < ApplicationRecord
-  has_secure_password
+module ErrorSerializer
 
-  has_many :chats
-  has_many :comments
-  has_many :events
-  has_many :messages
-  has_many :requirements
-  has_many :sats, through: :events
-
-  def generate_json_api_error
+  def self.serialize(errors)
+    return if errors.nil?
     json_error = {"errors": []}
     errors.messages.each do |err_type, messages|
       messages.each do |msg|
